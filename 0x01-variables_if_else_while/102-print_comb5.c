@@ -1,37 +1,66 @@
+#include <stdlib.h>
+#include <time.h>
 #include <stdio.h>
 
 /**
- * main - main program
+ * main - Main program
  * description: prints all possible combinations of two two-digit numbers
- * Return: 0
+ * Return: Always 0
  */
 int main(void)
 {
-	int i, j;
+	int i, j, k, l;
 
-	for (i = 0; i <= 99; i++)
+	i = 48;
+	j = 48;
+	k = 48;
+	l = 49;
+	while  ((i < 58))
 	{
-		for (j = i; j <= 99; i++)
+		putchar(i);
+		putchar(j);
+		putchar(32);
+		putchar(k);
+		putchar(l);
+		if ((i == 57) && (j == 56) && (k == 57) && (l == 57))
 		{
-			if (j != i)
+			putchar('\n');
+			i++;
+		}
+		else
+		{
+			putchar(44);
+			putchar(32);
+			if ((k == 57) && (l == 57))
 			{
-
-				putchar(i / 10 + 48);
-				putchar(i % 10 + 48);
-				putchar(' ');
-				putchar(j / 10 + 48);
-				putchar(j % 10 + 48);
-
-				if (i * 100 + j != 9899)
+				if (j < 56)
 				{
-					putchar(',');
-					putchar(' ');
+					l = ++j + 1;
+					k = i;
+				}
+				else if (j == 56)
+				{
+					j++;
+					k = i + 1;
+					l = 48;
+				}
+				else if (j == 57)
+				{
+					j = 48;
+					l = 49;
+					k = ++i;
 				}
 			}
-
+			else if (l < 57)
+			{
+				l++;
+			}
+			else
+			{
+				l = 48;
+				k++;
+			}
 		}
-
 	}
-	putchar('\n');
 	return (0);
 }

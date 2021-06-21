@@ -1,21 +1,25 @@
-#include <stdio.h>
-#include <time.h>
 #include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
+
 /**
- * main - main program
+ * main - Main program
  * Description: prints all the numbers of base 16 in lowercase
- * Return: 0
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	char i = 'z';
+	char character;
 
-	while (i >= 'a')
+	for (character = '0' ; character <= '9' ; character++)
 	{
-		putchar(i);
-		i--;
+		putchar(character);
 	}
-
+	for (character = 'a' ; character <= 'f' ; character++)
+	{
+		putchar(character);
+	}
 	putchar('\n');
 	return (0);
 }
