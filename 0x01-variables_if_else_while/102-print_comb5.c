@@ -10,57 +10,36 @@
 int main(void)
 {
 	int i, j, k, l;
+	int digit1 = 48;
+	int digit2 = 48;
+	int digit3 = 48;
+	int digit4 = 48;
 
-	i = 48;
-	j = 48;
-	k = 48;
-	l = 49;
-	while  ((i < 58))
+	for (i = 0; i <= 9; i++)
 	{
-		putchar(i);
-		putchar(j);
-		putchar(32);
-		putchar(k);
-		putchar(l);
-		if ((i == 57) && (j == 56) && (k == 57) && (l == 57))
+		for (j = 0; j <= 9; j++)
 		{
-			putchar('\n');
-			i++;
-		}
-		else
-		{
-			putchar(44);
-			putchar(32);
-			if ((k == 57) && (l == 57))
+			for (k = 0; k <= 9; k++)
 			{
-				if (j < 56)
+				for (l = 0; l <= 9; l++)
 				{
-					l = ++j + 1;
-					k = i;
+					if ((i + j) < (k + l))
+					{
+						putchar(digit1 + i);
+						putchar(digit2 + j);
+						putchar(' ');
+						putchar(digit3 + k);
+						putchar(digit4 + l);
+						if ((i + j + k + l) != 35)
+						{
+							putchar(',');
+							putchar(' ');
+						}
+					}
 				}
-				else if (j == 56)
-				{
-					j++;
-					k = i + 1;
-					l = 48;
-				}
-				else if (j == 57)
-				{
-					j = 48;
-					l = 49;
-					k = ++i;
-				}
-			}
-			else if (l < 57)
-			{
-				l++;
-			}
-			else
-			{
-				l = 48;
-				k++;
 			}
 		}
 	}
+	putchar('\n');
 	return (0);
 }
