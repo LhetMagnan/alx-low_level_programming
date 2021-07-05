@@ -8,24 +8,24 @@
  * Description:  locates a substring
  * Return: Always(0) Success
  */
+
 char *_strstr(char *haystack, char *needle)
 {
-	while (*haystack)
-	{
-		char *fst_string = haystack;
-		char *secnd_string = needle
+	int i, j;
 
-			while (*haystack && *secnd_string && *haystack ==
-			       *secnd_string)
+	for (i = 0; haystack[i] > '\0'; i++)
+	{
+		for (j = i; haystack[j] > '\0' && needle[j - i] > '\0'; j++)
+		{
+			if (haystack[j] != needle[j - i])
 			{
-				haystack++;
-				secnd_string++;
+				break;
 			}
-			if (!*secnd_string)
-			{
-				return (fst_string);
-			}
-			haystack = fst_string + 1;
+		}
+		if (needle[j - i] == '\0')
+		{
+			return (haystack + i);
+		}
 	}
-	return (NULL);
+	return (0);
 }
